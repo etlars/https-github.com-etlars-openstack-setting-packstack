@@ -1,0 +1,12 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+10.1.0.148	ctrl
+10.1.0.149	com0
+10.1.0.150	com1
+20.1.0.134	ctrl-api
+20.1.0.135	com0-api
+20.1.0.136	com1-api
+30.1.0.129	ctrl-data
+30.1.0.130	com0-data
+30.1.0.131	com1-data
