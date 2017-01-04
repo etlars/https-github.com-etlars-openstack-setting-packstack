@@ -1,0 +1,46 @@
+4db05c07-5195-4fe3-b4c3-fcceda1b8e7e
+    Bridge br-int
+        fail_mode: secure
+        Port int-br-ex
+            Interface int-br-ex
+                type: patch
+                options: {peer=phy-br-ex}
+        Port br-int
+            Interface br-int
+                type: internal
+        Port int-br-vlan
+            Interface int-br-vlan
+                type: patch
+                options: {peer=phy-br-vlan}
+        Port patch-tun
+            Interface patch-tun
+                type: patch
+                options: {peer=patch-int}
+    Bridge br-tun
+        fail_mode: secure
+        Port br-tun
+            Interface br-tun
+                type: internal
+        Port "vxlan-1e010082"
+            Interface "vxlan-1e010082"
+                type: vxlan
+                options: {df_default="true", in_key=flow, local_ip="30.1.0.129", out_key=flow, remote_ip="30.1.0.130"}
+        Port "vxlan-1e010083"
+            Interface "vxlan-1e010083"
+                type: vxlan
+                options: {df_default="true", in_key=flow, local_ip="30.1.0.129", out_key=flow, remote_ip="30.1.0.131"}
+        Port patch-int
+            Interface patch-int
+                type: patch
+                options: {peer=patch-tun}
+    Bridge br-ex
+        Port br-ex
+            Interface br-ex
+                type: internal
+        Port "eth0"
+            Interface "eth0"
+        Port phy-br-ex
+            Interface phy-br-ex
+                type: patch
+                options: {peer=int-br-ex}
+    ovs_version: "2.5.0"
