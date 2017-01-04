@@ -1,0 +1,5 @@
+DEVICE=eth2
+TYPE=OVSPort
+DEVICETYPE=ovs
+OVS_BRIDGE=br-vlan
+ONBOOT="yes"
