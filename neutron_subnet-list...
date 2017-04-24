@@ -1,0 +1,99 @@
+[root@ctrl ~(admin)]# neutron subnet-list
++--------------------------------------+---------------------------------------------------+------------------+------------------------------------------------------+
+| id                                   | name                                              | cidr             | allocation_pools                                     |
++--------------------------------------+---------------------------------------------------+------------------+------------------------------------------------------+
+| c909be5c-8c79-45bc-8262-27412686daaa | external_subnet                                   | 10.1.0.0/24      | {"start": "10.1.0.200", "end": "10.1.0.250"}         |
+| db507131-75c4-40d0-986a-be60949690ba | provider-flat-subnet                              | 30.1.0.0/24      | {"start": "30.1.0.200", "end": "30.1.0.250"}         |
+| 0bcddae1-5ba8-4aa1-ae34-4f894fd0e12a | HA subnet tenant 8467ba698e5b4c6588423d32e2a2a1e2 | 169.254.192.0/18 | {"start": "169.254.192.1", "end": "169.254.255.254"} |
+| 1bdea0af-5d1a-4415-8a15-825b04335c4e | admin_subnet                                      | 11.0.0.0/24      | {"start": "11.0.0.2", "end": "11.0.0.254"}           |
+| 8ea8b9f7-95eb-4969-8f62-411a93c409a1 | demo_subnet                                       | 99.0.0.0/24      | {"start": "99.0.0.2", "end": "99.0.0.254"}           |
+| eb7e7e3f-bc2f-4060-b48c-ee9f5ca5d2be | admin_subnet22                                    | 12.0.0.0/24      | {"start": "12.0.0.2", "end": "12.0.0.254"}           |
++--------------------------------------+---------------------------------------------------+------------------+------------------------------------------------------+
+[root@ctrl ~(admin)]# neutron subnet-show external_subnet
+^[[A+-------------------+----------------------------------------------+
+| Field             | Value                                        |
++-------------------+----------------------------------------------+
+| allocation_pools  | {"start": "10.1.0.200", "end": "10.1.0.250"} |
+| cidr              | 10.1.0.0/24                                  |
+| created_at        | 2016-08-26T06:19:53                          |
+| description       |                                              |
+| dns_nameservers   |                                              |
+| enable_dhcp       | False                                        |
+| gateway_ip        | 10.1.0.2                                     |
+| host_routes       |                                              |
+| id                | c909be5c-8c79-45bc-8262-27412686daaa         |
+| ip_version        | 4                                            |
+| ipv6_address_mode |                                              |
+| ipv6_ra_mode      |                                              |
+| name              | external_subnet                              |
+| network_id        | 597d27b4-18e2-4691-be15-c9d802f34113         |
+| subnetpool_id     |                                              |
+| tenant_id         | 8467ba698e5b4c6588423d32e2a2a1e2             |
+| updated_at        | 2016-08-26T06:19:53                          |
++-------------------+----------------------------------------------+
+[root@ctrl ~(admin)]# neutron subnet-show provider-flat-subnet
++-------------------+----------------------------------------------+
+| Field             | Value                                        |
++-------------------+----------------------------------------------+
+| allocation_pools  | {"start": "30.1.0.200", "end": "30.1.0.250"} |
+| cidr              | 30.1.0.0/24                                  |
+| created_at        | 2016-08-26T22:29:22                          |
+| description       |                                              |
+| dns_nameservers   |                                              |
+| enable_dhcp       | False                                        |
+| gateway_ip        |                                              |
+| host_routes       |                                              |
+| id                | db507131-75c4-40d0-986a-be60949690ba         |
+| ip_version        | 4                                            |
+| ipv6_address_mode |                                              |
+| ipv6_ra_mode      |                                              |
+| name              | provider-flat-subnet                         |
+| network_id        | 97e50361-503e-4922-96b0-6c3e3b13c197         |
+| subnetpool_id     |                                              |
+| tenant_id         | 8467ba698e5b4c6588423d32e2a2a1e2             |
+| updated_at        | 2016-08-26T22:29:22                          |
++-------------------+----------------------------------------------+
+[root@ctrl ~(admin)]# neutron subnet-show admin_subnet
++-------------------+--------------------------------------------+
+| Field             | Value                                      |
++-------------------+--------------------------------------------+
+| allocation_pools  | {"start": "11.0.0.2", "end": "11.0.0.254"} |
+| cidr              | 11.0.0.0/24                                |
+| created_at        | 2016-08-26T06:21:31                        |
+| description       |                                            |
+| dns_nameservers   |                                            |
+| enable_dhcp       | True                                       |
+| gateway_ip        | 11.0.0.1                                   |
+| host_routes       |                                            |
+| id                | 1bdea0af-5d1a-4415-8a15-825b04335c4e       |
+| ip_version        | 4                                          |
+| ipv6_address_mode |                                            |
+| ipv6_ra_mode      |                                            |
+| name              | admin_subnet                               |
+| network_id        | bd06f590-3c84-4043-a7cb-aa86992003c0       |
+| subnetpool_id     |                                            |
+| tenant_id         | 8467ba698e5b4c6588423d32e2a2a1e2           |
+| updated_at        | 2016-08-26T06:21:31                        |
++-------------------+--------------------------------------------+
+[root@ctrl ~(admin)]# neutron subnet-show 0bcddae1-5ba8-4aa1-ae34-4f894fd0e12a
++-------------------+------------------------------------------------------+
+| Field             | Value                                                |
++-------------------+------------------------------------------------------+
+| allocation_pools  | {"start": "169.254.192.1", "end": "169.254.255.254"} |
+| cidr              | 169.254.192.0/18                                     |
+| created_at        | 2017-03-09T12:26:00                                  |
+| description       |                                                      |
+| dns_nameservers   |                                                      |
+| enable_dhcp       | False                                                |
+| gateway_ip        |                                                      |
+| host_routes       |                                                      |
+| id                | 0bcddae1-5ba8-4aa1-ae34-4f894fd0e12a                 |
+| ip_version        | 4                                                    |
+| ipv6_address_mode |                                                      |
+| ipv6_ra_mode      |                                                      |
+| name              | HA subnet tenant 8467ba698e5b4c6588423d32e2a2a1e2    |
+| network_id        | e4fd3a82-b731-4df3-8623-7f440671f6cc                 |
+| subnetpool_id     |                                                      |
+| tenant_id         |                                                      |
+| updated_at        | 2017-03-09T12:26:00                                  |
++-------------------+------------------------------------------------------+
